@@ -1,11 +1,10 @@
 import { NavLink } from "react-router-dom";
 import {
-  LayoutDashboard, Brain, BarChart2, TrendingUp, History, Info
+  Brain, BarChart2, TrendingUp, History, Info
 } from "lucide-react";
 
 const NAV = [
-  { to: "/",           icon: LayoutDashboard, label: "Dashboard" },
-  { to: "/predict",    icon: Brain,           label: "Predict" },
+  { to: "/",           icon: Brain,           label: "Predict" },
   { to: "/analytics",  icon: BarChart2,        label: "Analytics" },
   { to: "/model",      icon: TrendingUp,       label: "Model Performance" },
   { to: "/history",    icon: History,          label: "History" },

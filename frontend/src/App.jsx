@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
-import Dashboard from "./pages/Dashboard";
 import Predict from "./pages/Predict";
 import Analytics from "./pages/Analytics";
 import ModelPerformance from "./pages/ModelPerformance";
@@ -15,7 +14,7 @@ export default function App() {
         <Sidebar />
         <main className="main-content">
           <Routes>
-            <Route path="/"        element={<Dashboard />} />
+            <Route path="/"        element={<Predict />} />
             <Route path="/predict" element={<Predict />} />
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/model"   element={<ModelPerformance />} />

@@ -24,6 +24,41 @@ const EMPTY = {
   month: "", duration: "", campaign: "", pdays: "", previous: "", poutcome: "",
 };
 
+function Field({ name, label, hint, errors, children }) {
+  return (
+    <div className="form-group">
+      <label className="form-label">{label} <span className="required">*</span></label>
+      {children}
+      {hint && <span className="form-hint">{hint}</span>}
+      {errors[name] && <span className="form-hint" style={{ color: "var(--danger)" }}>{errors[name]}</span>}
+    </div>
+  );
+}
+
+function Inp({ name, form, onChange, errors, ...props }) {
+  return (
+    <input
+      className={`form-control${errors[name] ? " error" : ""}`}
+      value={form[name]}
+      onChange={onChange(name)}
+      {...props}
+    />
+  );
+}
+
+function Sel({ name, form, onChange, errors, children }) {
+  return (
+    <select
+      className={`form-control${errors[name] ? " error" : ""}`}
+      value={form[name]}
+      onChange={onChange(name)}
+    >
+      <option value="">Select…</option>
+      {children}
+    </select>
+  );
+}
+
 export default function Predict() {
   const [form, setForm]         = useState(EMPTY);
   const [result, setResult]     = useState(null);
@@ -85,35 +120,6 @@ export default function Predict() {
     }
   };
 
-  const Field = ({ name, label, hint, children }) => (
-    <div className="form-group">
-      <label className="form-label">{label} <span className="required">*</span></label>
-      {children}
-      {hint && <span className="form-hint">{hint}</span>}
-      {errors[name] && <span className="form-hint" style={{ color: "var(--danger)" }}>{errors[name]}</span>}
-    </div>
-  );
-
-  const Inp = ({ name, ...props }) => (
-    <input
-      className={`form-control${errors[name] ? " error" : ""}`}
-      value={form[name]}
-      onChange={set(name)}
-      {...props}
-    />
-  );
-
-  const Sel = ({ name, children }) => (
-    <select
-      className={`form-control${errors[name] ? " error" : ""}`}
-      value={form[name]}
-      onChange={set(name)}
-    >
-      <option value="">Select…</option>
-      {children}
-    </select>
-  );
-
   return (
     <div className="fade-in">
       <div className="page-header">
@@ -141,39 +147,39 @@ export default function Predict() {
         <div className="card" style={{ marginBottom: 20 }}>
           <div className="card-title">Client Information</div>
           <div className="form-grid form-grid-3">
-            <Field name="age" label="Age" hint="18–100">
-              <Inp name="age" type="number" placeholder="e.g. 41" min={18} max={100} />
+            <Field name="age" label="Age" hint="18–100" errors={errors}>
+              <Inp name="age" type="number" placeholder="e.g. 41" min={18} max={100} form={form} onChange={set} errors={errors} />
             </Field>
-            <Field name="job" label="Job">
-              <Sel name="job">
+            <Field name="job" label="Job" errors={errors}>
+              <Sel name="job" form={form} onChange={set} errors={errors}>
                 {JOBS.map(j => <option key={j} value={j}>{j}</option>)}
               </Sel>
             </Field>
-            <Field name="marital" label="Marital Status">
-              <Sel name="marital">
+            <Field name="marital" label="Marital Status" errors={errors}>
+              <Sel name="marital" form={form} onChange={set} errors={errors}>
                 {["married","single","divorced"].map(m => <option key={m} value={m}>{m}</option>)}
               </Sel>
             </Field>
-            <Field name="education" label="Education">
-              <Sel name="education">
+            <Field name="education" label="Education" errors={errors}>
+              <Sel name="education" form={form} onChange={set} errors={errors}>
                 {["primary","secondary","tertiary","unknown"].map(e => <option key={e} value={e}>{e}</option>)}
               </Sel>
             </Field>
-            <Field name="default" label="Has Credit Default?" hint="Has credit in default?">
-              <Sel name="default">
+            <Field name="default" label="Has Credit Default?" hint="Has credit in default?" errors={errors}>
+              <Sel name="default" form={form} onChange={set} errors={errors}>
                 {["yes","no"].map(v => <option key={v} value={v}>{v}</option>)}
               </Sel>
             </Field>
-            <Field name="balance" label="Account Balance (€)" hint="Average yearly balance">
-              <Inp name="balance" type="number" placeholder="e.g. 1357" />
+            <Field name="balance" label="Account Balance (€)" hint="Average yearly balance" errors={errors}>
+              <Inp name="balance" type="number" placeholder="e.g. 1357" form={form} onChange={set} errors={errors} />
             </Field>
-            <Field name="housing" label="Housing Loan?">
-              <Sel name="housing">
+            <Field name="housing" label="Housing Loan?" errors={errors}>
+              <Sel name="housing" form={form} onChange={set} errors={errors}>
                 {["yes","no"].map(v => <option key={v} value={v}>{v}</option>)}
               </Sel>
             </Field>
-            <Field name="loan" label="Personal Loan?">
-              <Sel name="loan">
+            <Field name="loan" label="Personal Loan?" errors={errors}>
+              <Sel name="loan" form={form} onChange={set} errors={errors}>
                 {["yes","no"].map(v => <option key={v} value={v}>{v}</option>)}
               </Sel>
             </Field>
@@ -184,24 +190,24 @@ export default function Predict() {
         <div className="card" style={{ marginBottom: 20 }}>
           <div className="card-title">Campaign Information</div>
           <div className="form-grid form-grid-3">
-            <Field name="contact" label="Contact Type">
-              <Sel name="contact">
+            <Field name="contact" label="Contact Type" errors={errors}>
+              <Sel name="contact" form={form} onChange={set} errors={errors}>
                 {["cellular","telephone","unknown"].map(v => <option key={v} value={v}>{v}</option>)}
               </Sel>
             </Field>
-            <Field name="day" label="Last Contact Day" hint="Day of month (1–31)">
-              <Inp name="day" type="number" placeholder="e.g. 5" min={1} max={31} />
+            <Field name="day" label="Last Contact Day" hint="Day of month (1–31)" errors={errors}>
+              <Inp name="day" type="number" placeholder="e.g. 5" min={1} max={31} form={form} onChange={set} errors={errors} />
             </Field>
-            <Field name="month" label="Last Contact Month">
-              <Sel name="month">
+            <Field name="month" label="Last Contact Month" errors={errors}>
+              <Sel name="month" form={form} onChange={set} errors={errors}>
                 {MONTHS.map(m => <option key={m} value={m}>{m}</option>)}
               </Sel>
             </Field>
-            <Field name="duration" label="Call Duration (sec)" hint="Last contact duration in seconds">
-              <Inp name="duration" type="number" placeholder="e.g. 261" min={0} />
+            <Field name="duration" label="Call Duration (sec)" hint="Last contact duration in seconds" errors={errors}>
+              <Inp name="duration" type="number" placeholder="e.g. 261" min={0} form={form} onChange={set} errors={errors} />
             </Field>
-            <Field name="campaign" label="Contacts (this campaign)" hint="Number of contacts performed during this campaign">
-              <Inp name="campaign" type="number" placeholder="e.g. 1" min={1} />
+            <Field name="campaign" label="Contacts (this campaign)" hint="Number of contacts performed during this campaign" errors={errors}>
+              <Inp name="campaign" type="number" placeholder="e.g. 1" min={1} form={form} onChange={set} errors={errors} />
             </Field>
           </div>
         </div>
@@ -210,14 +216,14 @@ export default function Predict() {
         <div className="card" style={{ marginBottom: 24 }}>
           <div className="card-title">Previous Campaign</div>
           <div className="form-grid form-grid-3">
-            <Field name="pdays" label="Days Since Last Contact" hint="-1 means not previously contacted">
-              <Inp name="pdays" type="number" placeholder="e.g. -1" />
+            <Field name="pdays" label="Days Since Last Contact" hint="-1 means not previously contacted" errors={errors}>
+              <Inp name="pdays" type="number" placeholder="e.g. -1" form={form} onChange={set} errors={errors} />
             </Field>
-            <Field name="previous" label="Previous Contacts" hint="Contacts before this campaign">
-              <Inp name="previous" type="number" placeholder="e.g. 0" min={0} />
+            <Field name="previous" label="Previous Contacts" hint="Contacts before this campaign" errors={errors}>
+              <Inp name="previous" type="number" placeholder="e.g. 0" min={0} form={form} onChange={set} errors={errors} />
             </Field>
-            <Field name="poutcome" label="Previous Outcome">
-              <Sel name="poutcome">
+            <Field name="poutcome" label="Previous Outcome" errors={errors}>
+              <Sel name="poutcome" form={form} onChange={set} errors={errors}>
                 {POUTCOMES.map(v => <option key={v} value={v}>{v}</option>)}
               </Sel>
             </Field>
