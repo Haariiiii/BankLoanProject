@@ -2,11 +2,13 @@
 import axios from "axios";
 
 // In development: proxied to localhost:5000 via vite.config.js
-// In production: set VITE_API_URL to your Render backend URL
 const RENDER_BACKEND_URL = "https://bankloanproject-5jgj.onrender.com";
 
-const BASE = import.meta.env.VITE_API_URL
-  ? `${import.meta.env.VITE_API_URL}/api`
+const rawEnvUrl = import.meta.env.VITE_API_URL;
+const isValidUrl = rawEnvUrl && rawEnvUrl.startsWith("http") && !rawEnvUrl.includes("YOUR-RENDER-URL");
+
+const BASE = isValidUrl
+  ? `${rawEnvUrl}/api`
   : import.meta.env.MODE === "production"
   ? `${RENDER_BACKEND_URL}/api`
   : "/api";
