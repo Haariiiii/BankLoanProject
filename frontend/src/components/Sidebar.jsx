@@ -1,14 +1,10 @@
 import { NavLink } from "react-router-dom";
-import {
-  Brain, BarChart2, TrendingUp, History, Info
-} from "lucide-react";
+import { Brain, History, Info } from "lucide-react";
 
 const NAV = [
-  { to: "/",           icon: Brain,           label: "Predict" },
-  { to: "/analytics",  icon: BarChart2,        label: "Analytics" },
-  { to: "/model",      icon: TrendingUp,       label: "Model Performance" },
-  { to: "/history",    icon: History,          label: "History" },
-  { to: "/about",      icon: Info,             label: "About" },
+  { to: "/",        icon: Brain,   label: "Predict" },
+  { to: "/history", icon: History, label: "History" },
+  { to: "/about",   icon: Info,    label: "About" },
 ];
 
 export default function Sidebar() {
