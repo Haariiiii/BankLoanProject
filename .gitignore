@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.egg-info/
+
+# Virtual env
+.venv/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Extracted / temp
+extracted/
+
+# Database (local only)
+backend/predictions.db
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large files not needed for deployment
+rebuild_model.py.log
+bank-full.csv
+best_model.zip

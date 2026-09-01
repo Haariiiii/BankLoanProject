@@ -1,0 +1,435 @@
+{
+  "model_name": "Random Forest Classifier",
+  "model_type": "RandomForestClassifier",
+  "sklearn_version": "1.7.2",
+  "n_estimators": 200,
+  "random_state": 42,
+  "accuracy": 0.9,
+  "roc_auc": 0.923,
+  "avg_precision": 0.5662,
+  "precision_no": 0.9382,
+  "recall_no": 0.9491,
+  "f1_no": 0.9436,
+  "precision_yes": 0.5826,
+  "recall_yes": 0.5319,
+  "f1_yes": 0.5561,
+  "confusion_matrix": [
+    [
+      11357,
+      609
+    ],
+    [
+      748,
+      850
+    ]
+  ],
+  "feature_columns": [
+    "age",
+    "education",
+    "balance",
+    "day",
+    "duration",
+    "campaign",
+    "pdays",
+    "previous",
+    "job_blue-collar",
+    "job_entrepreneur",
+    "job_housemaid",
+    "job_management",
+    "job_retired",
+    "job_self-employed",
+    "job_services",
+    "job_student",
+    "job_technician",
+    "job_unemployed",
+    "job_unknown",
+    "marital_married",
+    "marital_single",
+    "default_yes",
+    "housing_yes",
+    "loan_yes",
+    "contact_telephone",
+    "contact_unknown",
+    "month_aug",
+    "month_dec",
+    "month_feb",
+    "month_jan",
+    "month_jul",
+    "month_jun",
+    "month_mar",
+    "month_may",
+    "month_nov",
+    "month_oct",
+    "month_sep",
+    "poutcome_other",
+    "poutcome_success",
+    "poutcome_unknown"
+  ],
+  "feature_importances": [
+    {
+      "feature": "duration",
+      "importance": 0.250646
+    },
+    {
+      "feature": "housing_yes",
+      "importance": 0.080253
+    },
+    {
+      "feature": "contact_unknown",
+      "importance": 0.056152
+    },
+    {
+      "feature": "month_may",
+      "importance": 0.046584
+    },
+    {
+      "feature": "balance",
+      "importance": 0.044756
+    },
+    {
+      "feature": "day",
+      "importance": 0.043486
+    },
+    {
+      "feature": "marital_married",
+      "importance": 0.039252
+    },
+    {
+      "feature": "month_aug",
+      "importance": 0.038991
+    },
+    {
+      "feature": "age",
+      "importance": 0.036509
+    },
+    {
+      "feature": "month_jul",
+      "importance": 0.035407
+    },
+    {
+      "feature": "pdays",
+      "importance": 0.029592
+    },
+    {
+      "feature": "job_blue-collar",
+      "importance": 0.026434
+    },
+    {
+      "feature": "month_nov",
+      "importance": 0.02452
+    },
+    {
+      "feature": "loan_yes",
+      "importance": 0.024223
+    },
+    {
+      "feature": "campaign",
+      "importance": 0.023053
+    },
+    {
+      "feature": "marital_single",
+      "importance": 0.020022
+    },
+    {
+      "feature": "job_technician",
+      "importance": 0.018885
+    },
+    {
+      "feature": "month_jun",
+      "importance": 0.018345
+    },
+    {
+      "feature": "month_feb",
+      "importance": 0.016005
+    },
+    {
+      "feature": "education",
+      "importance": 0.015699
+    },
+    {
+      "feature": "poutcome_unknown",
+      "importance": 0.014661
+    },
+    {
+      "feature": "previous",
+      "importance": 0.012957
+    },
+    {
+      "feature": "month_jan",
+      "importance": 0.011345
+    },
+    {
+      "feature": "job_management",
+      "importance": 0.0113
+    },
+    {
+      "feature": "job_services",
+      "importance": 0.011106
+    },
+    {
+      "feature": "poutcome_success",
+      "importance": 0.008372
+    },
+    {
+      "feature": "contact_telephone",
+      "importance": 0.005682
+    },
+    {
+      "feature": "poutcome_other",
+      "importance": 0.004681
+    },
+    {
+      "feature": "job_retired",
+      "importance": 0.004079
+    },
+    {
+      "feature": "job_unemployed",
+      "importance": 0.003892
+    },
+    {
+      "feature": "job_self-employed",
+      "importance": 0.003659
+    },
+    {
+      "feature": "job_entrepreneur",
+      "importance": 0.00339
+    },
+    {
+      "feature": "month_oct",
+      "importance": 0.003276
+    },
+    {
+      "feature": "job_housemaid",
+      "importance": 0.003014
+    },
+    {
+      "feature": "job_student",
+      "importance": 0.002697
+    },
+    {
+      "feature": "month_sep",
+      "importance": 0.00223
+    },
+    {
+      "feature": "month_mar",
+      "importance": 0.00204
+    },
+    {
+      "feature": "month_dec",
+      "importance": 0.001278
+    },
+    {
+      "feature": "default_yes",
+      "importance": 0.000766
+    },
+    {
+      "feature": "job_unknown",
+      "importance": 0.000762
+    }
+  ],
+  "roc_curve": {
+    "fpr": [
+      0.0,
+      0.0008,
+      0.0019,
+      0.0036,
+      0.0059,
+      0.01,
+      0.0157,
+      0.0223,
+      0.032,
+      0.0429,
+      0.0561,
+      0.0708,
+      0.0862,
+      0.1025,
+      0.1233,
+      0.1498,
+      0.1819,
+      0.2291,
+      0.2973,
+      0.4682
+    ],
+    "tpr": [
+      0.0,
+      0.0081,
+      0.0288,
+      0.0676,
+      0.1095,
+      0.1677,
+      0.229,
+      0.3141,
+      0.388,
+      0.485,
+      0.5638,
+      0.6333,
+      0.7084,
+      0.7697,
+      0.8166,
+      0.8617,
+      0.9018,
+      0.928,
+      0.9625,
+      0.9912
+    ]
+  },
+  "pr_curve": {
+    "precision": [
+      0.1178,
+      0.2495,
+      0.3198,
+      0.3667,
+      0.4067,
+      0.4451,
+      0.4784,
+      0.5093,
+      0.5327,
+      0.5554,
+      0.5815,
+      0.6135,
+      0.6242,
+      0.6563,
+      0.6634,
+      0.7118,
+      0.7196,
+      0.7054,
+      0.6949,
+      0.55
+    ],
+    "recall": [
+      1.0,
+      0.9825,
+      0.9524,
+      0.923,
+      0.8861,
+      0.8479,
+      0.8023,
+      0.7522,
+      0.6884,
+      0.6151,
+      0.5401,
+      0.4618,
+      0.3617,
+      0.2785,
+      0.2096,
+      0.1546,
+      0.0964,
+      0.0569,
+      0.0257,
+      0.0069
+    ]
+  },
+  "model_comparison": [
+    {
+      "model": "Decision Tree",
+      "accuracy": 86.0,
+      "yes_precision": 44,
+      "yes_recall": 70,
+      "yes_f1": 54,
+      "best": false
+    },
+    {
+      "model": "Random Forest",
+      "accuracy": 90.0,
+      "yes_precision": 57,
+      "yes_recall": 59,
+      "yes_f1": 58,
+      "best": true
+    },
+    {
+      "model": "Logistic Regression",
+      "accuracy": 87.98,
+      "yes_precision": 49,
+      "yes_recall": 42,
+      "yes_f1": 45,
+      "best": false
+    },
+    {
+      "model": "KNN",
+      "accuracy": 88.0,
+      "yes_precision": 51,
+      "yes_recall": 67,
+      "yes_f1": 58,
+      "best": false
+    },
+    {
+      "model": "Gradient Boosting",
+      "accuracy": 89.09,
+      "yes_precision": 54,
+      "yes_recall": 48,
+      "yes_f1": 51,
+      "best": false
+    },
+    {
+      "model": "SVC",
+      "accuracy": 89.13,
+      "yes_precision": 52,
+      "yes_recall": 68,
+      "yes_f1": 59,
+      "best": false
+    },
+    {
+      "model": "XGBoost",
+      "accuracy": 89.13,
+      "yes_precision": 52,
+      "yes_recall": 68,
+      "yes_f1": 59,
+      "best": false
+    }
+  ],
+  "dataset_stats": {
+    "total_rows": 45211,
+    "total_cols": 17,
+    "features": 16,
+    "target_distribution": {
+      "no": 39922,
+      "yes": 5289
+    },
+    "before_smote": {
+      "no": 27956,
+      "yes": 3691
+    },
+    "after_smote": {
+      "no": 27956,
+      "yes": 27956
+    },
+    "feature_names": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "balance",
+      "housing",
+      "loan",
+      "contact",
+      "day",
+      "month",
+      "duration",
+      "campaign",
+      "pdays",
+      "previous",
+      "poutcome"
+    ]
+  },
+  "classes": [
+    "no",
+    "yes"
+  ],
+  "education_mapping": {
+    "unknown": 0,
+    "primary": 1,
+    "secondary": 2,
+    "tertiary": 3
+  },
+  "categorical_cols": [
+    "job",
+    "marital",
+    "default",
+    "housing",
+    "loan",
+    "contact",
+    "month",
+    "poutcome"
+  ]
+}
